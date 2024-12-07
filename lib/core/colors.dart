@@ -23,7 +23,7 @@ abstract class AppColors {
   static const Color lightGreen = Color(0xFFBEDBBF);
   static const Color lightPurple = Color(0xFFD5C6F8);
 
-  static const Color hintTextColor = Color(0xFF656565);
+  static const Color hintTextColor = Color(0xFF67798b);
 
   static const Color checkBoxColor = Color(0xFF1C1C1C);
   static const Color borderColor = Color(0xFFCCCCCC);
@@ -35,8 +35,10 @@ abstract class AppColors {
   static Color get backgroundColor =>
       isLightTheme ? white : const Color(0xFF0F0F0F);
 
-  static Color get regularTextColor =>
-      isLightTheme ? checkBoxColor : white;
+  static Color get buttonColor =>
+      isLightTheme ? const Color(0xFF0065e1) : const Color(0xFF0F0F0F);
+
+  static Color get regularTextColor => isLightTheme ? checkBoxColor : white;
 
   static Color get textFieldColor =>
       isLightTheme ? const Color(0xFFCCCCCC) : const Color(0xFF343434);
@@ -44,4 +46,12 @@ abstract class AppColors {
   static Color get appBarTextColor => isLightTheme ? primaryBlue1 : white;
 
   static Color get skeletonBaseColor => isLightTheme ? black : white;
+
+  static const screenBackgroundGradientColor = [
+    Color(0xFFfef9f2),
+    Color(0xFFfaf3f8),
+    Color(0xFFecf5fe),
+    Color(0xFFecf5ff),
+    Color(0xFFeffbf2),
+  ];
 }

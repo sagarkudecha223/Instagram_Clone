@@ -7,8 +7,10 @@ import 'package:flutter_base_architecture_plugin/services/localization/localizat
 
 import '../apis/api_names.dart';
 import '../blocs/full_screen_error/full_screen_error_bloc.dart';
+import '../blocs/login/login_bloc.dart';
 import '../blocs/main_app/main_app_bloc.dart';
 import '../core/cache/preference_store.dart';
+import '../services/hive/hive_service.dart';
 import '../services/theme_service/app_theme.dart';
 import '../services/theme_service/theme_service.dart';
 import '../services/user/permission_handler_service.dart';
@@ -26,6 +28,7 @@ abstract class Injector extends BaseInjector {
 
     await container.resolve<PreferenceStore>().init();
     await container.resolve<UserService>().init();
+    await container.resolve<HiveService>().init();
 
     return true;
   }
@@ -57,11 +60,13 @@ abstract class Injector extends BaseInjector {
   /// Register Services
   @Register.singleton(ThemeService)
   @Register.singleton(UserService)
+  @Register.singleton(HiveService)
   @Register.singleton(PermissionHandlerService)
   void _registerServices();
 
   /// Register Bloc dependencies
   @Register.factory(MainAppBloc)
   @Register.factory(FullScreenErrorBloc)
+  @Register.factory(LoginBloc)
   void _registerBlocProviders();
 }

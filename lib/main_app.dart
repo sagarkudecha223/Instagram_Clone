@@ -12,6 +12,7 @@ import 'localization/app_localization.dart';
 import 'ui/common/app_loader.dart';
 import 'ui/common/app_toast.dart';
 import 'ui/common/confirmation_alert_dialog.dart';
+import 'ui/login/login_screen.dart';
 
 class EntryPoint extends StatefulWidget {
   const EntryPoint({super.key});
@@ -59,6 +60,7 @@ class _EntryPointState extends BaseState<MainAppBloc, EntryPoint>
             navigatorKey: navigatorKey,
             theme: ThemeData(
                 appBarTheme: const AppBarTheme(color: AppColors.white),
+                fontFamily: 'proxima_nova',
                 radioTheme: RadioThemeData(
                     visualDensity: VisualDensity.compact,
                     fillColor: WidgetStateColor.resolveWith(
@@ -162,10 +164,7 @@ class _MainContent extends StatelessWidget {
       case ScreenState.loading:
         return const AppLoader();
       case ScreenState.content:
-        return Center(child: Text('Home Screen'));
-      /*(bloc.state.isLoggedIn! || bloc.state.isGuestUser)
-            ? const TabBarScreen()
-            : const LanguageSelectionScreen();*/
+        return LoginScreen();
       default:
         return const Center(child: CircularProgressIndicator());
     }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_base_architecture_plugin/extension/string_extensions.dart';
-import 'package:gap/gap.dart';
 
 import '../../../core/colors.dart';
 import '../../../core/dimens.dart';
@@ -15,7 +14,7 @@ class AppCheckbox extends StatelessWidget {
   final double borderRadius;
   final double borderWidth;
   final Color borderColor;
-  final Color activeColor;
+  final Color? activeColor;
   final Color fillColor;
   final Color checkColor;
   final double spacing;
@@ -27,7 +26,7 @@ class AppCheckbox extends StatelessWidget {
     this.onChanged,
     this.borderRadius = Dimens.radius4xSmall,
     this.borderWidth = Dimens.borderWidthMedium,
-    this.activeColor = AppColors.primaryBlue1,
+    this.activeColor,
     this.checkColor = AppColors.white,
     this.fillColor = AppColors.white,
     this.borderColor = AppColors.secondaryGrey3,
@@ -40,31 +39,32 @@ class AppCheckbox extends StatelessWidget {
     return AppInkWell(
       onTap: () => onChanged?.call(!value),
       child: Row(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Checkbox(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(borderRadius)),
-              value: value,
-              checkColor: checkColor,
-              side: WidgetStateBorderSide.resolveWith(
-                  (_) => BorderSide(color: borderColor, width: borderWidth)),
-              fillColor: WidgetStateColor.resolveWith(
-                  (_) => value ? activeColor : fillColor),
-              onChanged: onChanged,
-              materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-              visualDensity:
-                  const VisualDensity(horizontal: Dimens.visualDensitySmall)),
           if (itemText.isNotBlank) ...[
-            Gap(spacing),
             Flexible(
               child: Text(itemText,
                   overflow: TextOverflow.visible,
                   style: itemTextStyle ??
                       AppFontTextStyles.textStyleMedium()
-                          .copyWith(fontSize: Dimens.fontSizeTwelve)),
+                          .copyWith(fontWeight: FontWeight.w600)),
             ),
-          ]
+          ],
+          Checkbox(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(borderRadius)),
+              value: value,
+              checkColor: checkColor,
+              side: WidgetStateBorderSide.resolveWith((_) => BorderSide(
+                  color: value ? AppColors.transparent : borderColor,
+                  width: borderWidth)),
+              fillColor: WidgetStateColor.resolveWith((_) =>
+                  value ? activeColor ?? AppColors.buttonColor : fillColor),
+              onChanged: onChanged,
+              materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+              visualDensity:
+                  const VisualDensity(horizontal: Dimens.visualDensitySmall)),
         ],
       ),
     );

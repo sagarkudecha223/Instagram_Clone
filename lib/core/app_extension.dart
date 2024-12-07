@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../localization/app_localization.dart';
 import 'colors.dart';
 import 'enum.dart';
 import 'images.dart';
@@ -52,6 +53,19 @@ extension SharedPreferenceStoreExtractor on SharedPreferenceStore {
         return String;
       case SharedPreferenceStore.LANGUAGE_CODE:
         return String;
+      case SharedPreferenceStore.USER_DETAILS:
+        return String;
+    }
+  }
+}
+
+extension LoginTextFieldEnumExtention on LoginTextFieldEnum {
+  String get title {
+    switch (this) {
+      case LoginTextFieldEnum.username:
+        return AppLocalization.currentLocalization().usernameLogin;
+      case LoginTextFieldEnum.password:
+        return AppLocalization.currentLocalization().password;
     }
   }
 }

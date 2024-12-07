@@ -1,7 +1,7 @@
 import 'app_localization.dart';
 
-class EnglishLocalization extends AppLocalization {
-  EnglishLocalization() : super(code: 'en', name: 'English');
+class MarathiLocalization extends AppLocalization {
+  MarathiLocalization() : super(code: 'mr', name: 'मराठी');
 
   @override
   String get noInternetConnection => 'No Internet Connection';
@@ -33,7 +33,7 @@ class EnglishLocalization extends AppLocalization {
   String get ok => 'Ok';
 
   @override
-  String get english => 'English';
+  String get english => 'मराठी';
 
   @override
   String get password => 'Password';

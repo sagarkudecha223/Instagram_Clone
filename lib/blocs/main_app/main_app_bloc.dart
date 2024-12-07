@@ -55,7 +55,6 @@ class MainAppBloc extends BaseBloc<MainAppEvent, MainAppData> {
     add(SetLocalizationEvent());
     add(SetProtectedRoutesEvent());
     add(UpdateMainAppState(state.rebuild((u) => u
-      ..appThemeData = _themeService.getThemeData()
       ..isLoggedIn = _userService.isUserLoggedIn
       ..state = ScreenState.content)));
   }

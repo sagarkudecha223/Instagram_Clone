@@ -14,4 +14,24 @@ abstract class AppLocalization extends BaseLocalization {
   String get retry;
 
   String get ok;
+
+  String get english;
+
+  String get usernameLogin;
+
+  String get password;
+
+  String get loginUserNameError;
+
+  String get passwordError;
+
+  String get login;
+
+  String get forgetPassword;
+
+  String get invalidCredentials;
+
+  String get createNewAccount;
+
+  String get selectYourLanguage;
 }

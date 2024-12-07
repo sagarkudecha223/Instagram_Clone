@@ -7,4 +7,6 @@ class Images {
   static const backArrow = '${_directory}back_arrow.svg';
   static const downArrow = '${_directory}down_arrow.svg';
   static const cancel = '${_directory}cancel.svg';
+  static const instagramLogo = '${_directory}instagram.png';
+  static const metaLogo = '${_directory}meta_brand.svg';
 }

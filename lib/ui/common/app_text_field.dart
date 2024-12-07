@@ -64,7 +64,7 @@ class AppTextField extends StatefulWidget {
       this.borderColor = AppColors.borderColor,
       this.cursorColor = AppColors.primaryBlue1,
       this.borderWidth = Dimens.borderWidthSmall,
-      this.borderRadius = Dimens.radius2xSmall,
+      this.borderRadius = Dimens.radiusSmall,
       this.backgroundColor,
       this.suffixIconType,
       this.onSuffixIconTap,
@@ -127,93 +127,88 @@ class _AppTextFieldState extends State<AppTextField> {
   OutlineInputBorder _focusedBorder() => OutlineInputBorder(
       borderRadius: BorderRadius.all(Radius.circular(widget.borderRadius)),
       borderSide: BorderSide(
-          color: AppColors.primaryBlue1,
+          color: AppColors.hintTextColor,
           width: widget.hasBorder ? widget.borderWidth : 1.0));
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        TextField(
-          inputFormatters: widget.inputFormatters,
-          controller: _textEditingController,
-          onTap: widget.onTap,
-          textInputAction: widget.textInputAction,
-          keyboardType: widget.keyboardType,
-          cursorColor: widget.cursorColor,
-          cursorErrorColor: AppColors.regularTextColor,
-          style: AppFontTextStyles.textStyleMedium(),
-          enabled: widget.enabled,
-          textCapitalization: widget.textCapitalization,
-          textAlign: TextAlign.left,
-          autocorrect: widget.enableSuggestions,
-          enableSuggestions: widget.enableSuggestions,
-          obscureText: _obscureText,
-          maxLines: widget.maxLines,
-          textAlignVertical: TextAlignVertical.center,
-          maxLength: widget.maxLength,
-          onTapOutside: (_) {
-            if (widget.onTapOutside != null) {
-              widget.onTapOutside!();
-            }
-          },
-          onSubmitted: widget.onSubmitted,
-          readOnly: widget.readOnly,
-          keyboardAppearance: Brightness.dark,
-          decoration: InputDecoration(
-              label: widget.labelText != null && widget.labelText!.isNotBlank
-                  ? Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        _LabelText(
-                          labelText: widget.labelText!,
-                          isError: widget.errorText != null &&
-                              widget.errorText!.isNotBlank,
-                          isFocused: _focusNode.hasFocus,
-                        ),
-                        if (widget.isMandatory)
-                          Text(' *',
-                              style: AppFontTextStyles.buttonTextStyle()
-                                  .copyWith(color: AppColors.red))
-                      ],
-                    )
-                  : null,
-              error: widget.errorText != null && widget.errorText!.isNotBlank
-                  ? _ErrorText(errorText: widget.errorText!)
-                  : null,
-              isDense: true,
-              prefixIcon: widget.prefix,
-              fillColor: widget.backgroundColor,
-              filled: widget.filled,
-              focusedBorder: _focusedBorder(),
-              border: _textFieldBorder(),
-              enabledBorder: _textFieldBorder(),
-              errorBorder: _textFieldBorder(),
-              focusedErrorBorder: _textFieldBorder(),
-              disabledBorder: _textFieldBorder(),
-              hintText: widget.hintText,
-              hintStyle: widget.hintTextStyle ??
-                  AppFontTextStyles.textStyleMedium()
-                      .copyWith(color: AppColors.textFieldColor),
-              suffixIcon: widget.suffixIconType != null &&
-                      _textEditingController.text.isNotEmpty
-                  ? _SuffixIcon(
-                      isLoading: widget.isLoading,
-                      type: _suffixIconType!,
-                      onTap: _onSuffixIconTap,
-                      height: widget.suffixIconHeight,
-                    )
-                  : null),
-          onChanged: (query) {
-            if (widget.textChanged != null) {
-              widget.textChanged!(query);
-            }
-            setState(() {});
-          },
-          focusNode: _focusNode,
-        ),
-      ],
+    return TextField(
+      inputFormatters: widget.inputFormatters,
+      controller: _textEditingController,
+      onTap: widget.onTap,
+      textInputAction: widget.textInputAction,
+      keyboardType: widget.keyboardType,
+      cursorColor: widget.cursorColor,
+      cursorErrorColor: AppColors.regularTextColor,
+      style: AppFontTextStyles.textStyleMedium(),
+      enabled: widget.enabled,
+      textCapitalization: widget.textCapitalization,
+      textAlign: TextAlign.left,
+      autocorrect: widget.enableSuggestions,
+      enableSuggestions: widget.enableSuggestions,
+      obscureText: _obscureText,
+      maxLines: widget.maxLines,
+      textAlignVertical: TextAlignVertical.center,
+      maxLength: widget.maxLength,
+      onTapOutside: (_) {
+        if (widget.onTapOutside != null) {
+          widget.onTapOutside!();
+        }
+      },
+      onSubmitted: widget.onSubmitted,
+      readOnly: widget.readOnly,
+      keyboardAppearance: Brightness.dark,
+      decoration: InputDecoration(
+          label: widget.labelText != null && widget.labelText!.isNotBlank
+              ? Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    _LabelText(
+                      labelText: widget.labelText!,
+                      isError: widget.errorText != null &&
+                          widget.errorText!.isNotBlank,
+                      isFocused: _focusNode.hasFocus,
+                    ),
+                    if (widget.isMandatory)
+                      Text(' *',
+                          style: AppFontTextStyles.buttonTextStyle()
+                              .copyWith(color: AppColors.red))
+                  ],
+                )
+              : null,
+          error: widget.errorText != null && widget.errorText!.isNotBlank
+              ? _ErrorText(errorText: widget.errorText!)
+              : null,
+          isDense: false,
+          prefixIcon: widget.prefix,
+          fillColor: widget.backgroundColor,
+          filled: widget.filled,
+          focusedBorder: _focusedBorder(),
+          border: _textFieldBorder(),
+          enabledBorder: _textFieldBorder(),
+          errorBorder: _textFieldBorder(),
+          focusedErrorBorder: _textFieldBorder(),
+          disabledBorder: _textFieldBorder(),
+          hintText: widget.hintText,
+          hintStyle: widget.hintTextStyle ??
+              AppFontTextStyles.textStyleMedium().copyWith(
+                  color: AppColors.textFieldColor, fontWeight: FontWeight.w400),
+          suffixIcon: widget.suffixIconType != null &&
+                  _textEditingController.text.isNotEmpty
+              ? _SuffixIcon(
+                  isLoading: widget.isLoading,
+                  type: _suffixIconType!,
+                  onTap: _onSuffixIconTap,
+                  height: widget.suffixIconHeight,
+                )
+              : null),
+      onChanged: (query) {
+        if (widget.textChanged != null) {
+          widget.textChanged!(query);
+        }
+        setState(() {});
+      },
+      focusNode: _focusNode,
     );
   }
 
@@ -278,6 +273,9 @@ class _LabelText extends StatelessWidget {
     return Text(
       labelText,
       style: AppFontTextStyles.textStyleMedium().copyWith(
+          fontWeight: FontWeight.w600,
+          fontSize: Dimens.fontSizeSixteen,
+          letterSpacing: 0.8,
           color: isError
               ? AppColors.red
               : isFocused

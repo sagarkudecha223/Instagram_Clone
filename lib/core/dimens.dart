@@ -17,6 +17,7 @@ class Dimens {
   static const double space2xLarge = 28;
   static const double space3xLarge = 30;
   static const double space4xLarge = 32;
+  static const double space5xLarge = 36;
 
   //Common font sizes
   static const double fontSizeEight = 8;

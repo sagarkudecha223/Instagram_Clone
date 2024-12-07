@@ -4,7 +4,7 @@ import 'colors.dart';
 import 'dimens.dart';
 
 abstract class AppFontTextStyles {
-  static const fontFamily = 'Ageo';
+  static const fontFamily = 'proxima_nova';
 
   static TextStyle textStyleSmall() => TextStyle(
       fontFamily: AppFontTextStyles.fontFamily,
@@ -16,19 +16,19 @@ abstract class AppFontTextStyles {
 
   static TextStyle textStyleMedium() => TextStyle(
       fontFamily: AppFontTextStyles.fontFamily,
-      fontWeight: FontWeight.w400,
-      fontSize: Dimens.fontSizeFourteen,
+      fontWeight: FontWeight.w500,
+      fontSize: Dimens.fontSizeSixteen,
       color: AppColors.regularTextColor,
       overflow: TextOverflow.ellipsis,
       letterSpacing: 0.07);
 
   static TextStyle textStyleLarge() => TextStyle(
       fontFamily: AppFontTextStyles.fontFamily,
-      fontWeight: FontWeight.w400,
-      fontSize: Dimens.fontSizeEighteen,
+      fontWeight: FontWeight.w600,
+      fontSize: Dimens.fontSizeSixteen,
       color: AppColors.regularTextColor,
       overflow: TextOverflow.ellipsis,
-      letterSpacing: 0.07);
+      letterSpacing: 0.8);
 
   static TextStyle textStyleBold() => TextStyle(
       fontFamily: AppFontTextStyles.fontFamily,
@@ -41,10 +41,10 @@ abstract class AppFontTextStyles {
   static TextStyle buttonTextStyle() => const TextStyle(
       fontFamily: AppFontTextStyles.fontFamily,
       fontWeight: FontWeight.w600,
-      fontSize: Dimens.fontSizeEighteen,
+      fontSize: Dimens.fontSizeSixteen,
       color: AppColors.white,
       overflow: TextOverflow.ellipsis,
-      letterSpacing: 0.07);
+      letterSpacing: 0.8);
 
   static TextStyle appbarTextStyle() => TextStyle(
       fontFamily: AppFontTextStyles.fontFamily,

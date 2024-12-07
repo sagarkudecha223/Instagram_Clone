@@ -17,8 +17,8 @@ class AppToast extends StatelessWidget {
         child: BackdropFilter(
             filter: AppImageFilters.blurLow,
             child: Container(
-                decoration: const ShapeDecoration(
-                    shape: StadiumBorder(), color: AppColors.primaryBlue1),
+                decoration: ShapeDecoration(
+                    shape: StadiumBorder(), color: AppColors.buttonColor),
                 padding: const EdgeInsets.symmetric(
                     horizontal: Dimens.spaceLarge,
                     vertical: Dimens.spaceXMedium),

@@ -14,7 +14,7 @@ class AppElevatedButton extends StatelessWidget {
   final Color? disabledColor;
   final Color? backgroundColor;
   final bool hasBorder;
-  final Color borderColor;
+  final Color? borderColor;
   final double borderWidth;
   final double borderRadius;
   final bool isEnabled;
@@ -30,11 +30,11 @@ class AppElevatedButton extends StatelessWidget {
     this.onTap,
     this.isLoading = false,
     this.disabledColor = AppColors.secondaryGrey2,
-    this.backgroundColor = AppColors.primaryBlue1,
+    this.backgroundColor,
     this.hasBorder = false,
-    this.borderColor = AppColors.primaryBlue1,
+    this.borderColor,
     this.borderWidth = Dimens.borderWidthSmall,
-    this.borderRadius = Dimens.radius2xSmall,
+    this.borderRadius = Dimens.radiusLarge,
     this.isEnabled = true,
     this.height = Dimens.button2xLarge,
     this.width = double.infinity,
@@ -49,12 +49,14 @@ class AppElevatedButton extends StatelessWidget {
     return ElevatedButton(
         onPressed: isLoading || !isEnabled ? null : onTap,
         style: ElevatedButton.styleFrom(
-          backgroundColor: isEnabled ? backgroundColor : disabledColor,
+          backgroundColor: isEnabled
+              ? backgroundColor ?? AppColors.buttonColor
+              : disabledColor,
           padding:
               const EdgeInsets.symmetric(horizontal: Dimens.paddingXMedium),
           shape: RoundedRectangleBorder(
             side: BorderSide(
-                color: borderColor,
+                color: borderColor ?? AppColors.buttonColor,
                 width: borderWidth,
                 style: hasBorder ? BorderStyle.solid : BorderStyle.none),
             borderRadius: BorderRadius.circular(borderRadius),
