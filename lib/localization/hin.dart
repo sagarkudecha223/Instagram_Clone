@@ -27,95 +27,83 @@ class HindiLocalization extends AppLocalization {
   String get connectionError => 'Connection error';
 
   @override
-  String get retry => 'Re-Try';
+  String get retry => 'पुनः प्रयास करें';
 
   @override
-  String get ok => 'Ok';
+  String get ok => 'ठीक है';
 
   @override
   String get english => 'हिन्दी';
 
   @override
-  String get password => 'Password';
+  String get password => 'पासवर्ड';
 
   @override
-  String get usernameLogin => 'Username, email or mobile number';
+  String get usernameLogin => 'उपयोगकर्ता नाम, ईमेल या मोबाइल नंबर';
 
   @override
   String get loginUserNameError =>
-      'Kindly enter valid Username, email or mobile number';
+      'कृपया वैध उपयोगकर्ता नाम, ईमेल या मोबाइल नंबर दर्ज करें';
 
   @override
-  String get passwordError => 'Password should not be blank!';
+  String get passwordError => 'पासवर्ड खाली नहीं होना चाहिए!';
 
   @override
-  String get login => 'Log in';
+  String get login => 'लॉग इन';
 
   @override
-  String get forgetPassword => 'Forgot Password?';
+  String get forgetPassword => 'पासवर्ड भूल गए?';
 
   @override
-  String get invalidCredentials => 'Invalid credentials!';
+  String get invalidCredentials => 'अमान्य क्रेडेंशियल्स!';
 
   @override
-  String get createNewAccount => 'Create new account';
+  String get createNewAccount => 'नया खाता बनाएँ';
 
   @override
-  String get selectYourLanguage => 'Select your language';
+  String get selectYourLanguage => 'अपनी भाषा चुनें';
 
   @override
-  // TODO: implement fullName
-  String get fullName => throw UnimplementedError();
+  String get fullNameError => 'कृपया वैध पूरा नाम दर्ज करें';
 
   @override
-  // TODO: implement mobileEmail
-  String get mobileEmail => throw UnimplementedError();
+  String get mobileEmailError => 'कृपया वैध मोबाइल नंबर या ईमेल दर्ज करें';
 
   @override
-  // TODO: implement usernameSignUp
-  String get usernameSignUp => throw UnimplementedError();
+  String get signUpUserNameError => 'कृपया वैध उपयोगकर्ता नाम दर्ज करें';
 
   @override
-  // TODO: implement fullNameError
-  String get fullNameError => throw UnimplementedError();
+  String get loginWithFaceBook => 'फेसबुक से लॉगिन करें';
 
   @override
-  // TODO: implement mobileEmailError
-  String get mobileEmailError => throw UnimplementedError();
+  String get or => 'या';
 
   @override
-  // TODO: implement signUp
-  String get signUp => throw UnimplementedError();
+  String get signUp => 'साइन अप';
 
   @override
-  // TODO: implement loginWithFaceBook
-  String get loginWithFaceBook => throw UnimplementedError();
+  String get mobileEmail => 'मोबाइल नंबर या ईमेल';
 
   @override
-  // TODO: implement alreadyHaveAccount
-  String get alreadyHaveAccount => throw UnimplementedError();
+  String get fullName => 'पूरा नाम';
 
   @override
-  // TODO: implement haveAnAccount
-  String get haveAnAccount => throw UnimplementedError();
+  String get usernameSignUp => 'उपयोगकर्ता नाम';
 
   @override
-  // TODO: implement or
-  String get or => throw UnimplementedError();
+  String get haveAnAccount => 'क्या आपके पास खाता है? लॉग इन करें';
 
   @override
-  // TODO: implement privacyPolicyText
-  String get privacyPolicyText => throw UnimplementedError();
+  String get signTopText =>
+      'साइन अप करें और अपने दोस्तों से फ़ोटो और वीडियो देखें';
 
   @override
-  // TODO: implement privacyPolicyTextHighLight
-  String get privacyPolicyTextHighLight => throw UnimplementedError();
+  String get privacyPolicyText =>
+      'साइन अप करके, आप हमारी शर्तों, गोपनीयता नीति और कुकी नीति से सहमति देते हैं';
 
   @override
-  // TODO: implement signTopText
-  String get signTopText => throw UnimplementedError();
+  String get privacyPolicyTextHighLight => 'शर्तों, गोपनीयता नीति और कुकी नीति';
 
   @override
-  // TODO: implement signUpUserNameError
-  String get signUpUserNameError => throw UnimplementedError();
+  String get alreadyHaveAccount => 'पहले से खाता है, कृपया साइन इन करें!';
 }

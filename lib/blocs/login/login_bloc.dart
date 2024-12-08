@@ -33,9 +33,11 @@ class LoginBloc extends BaseBloc<LoginEvent, LoginData> {
 
   void _initLoginEvent(_, __) async {
     final list = await _userService.getUserAccounts();
+    final lang = _userService.language;
     add(UpdateLoginState(state.rebuild((u) => u
       ..state = ScreenState.content
       ..userAccountsList = list
+      ..selectedLanguageCode = lang
       ..selectedLanguageCode = _userService.language)));
   }
 
@@ -78,7 +80,7 @@ class LoginBloc extends BaseBloc<LoginEvent, LoginData> {
     if (_isValidData()) {
       _updateLoginButtonState(true);
       if (_haveAccount()) {
-        dispatchViewEvent(NavigateScreen(AppRoutes.homeScreen));
+        dispatchViewEvent(NavigateScreen(AppRoutes.editProfileScreen));
       } else {
         _dispatchMessage(
             AppLocalization.currentLocalization().invalidCredentials);
@@ -129,8 +131,10 @@ class LoginBloc extends BaseBloc<LoginEvent, LoginData> {
   void _languageTapEvent(LanguageTapEvent event, __) async {
     await _userService.setLanguage(language: event.languageCode);
     await _localizationService.changeLocalization(event.localization);
-    add((UpdateLoginState(
-        state.rebuild((u) => u.selectedLanguageCode = event.languageCode))));
+    add((UpdateLoginState(state.rebuild((u) => u
+      ..selectedLanguageCode = event.languageCode
+      ..useNameErrorMessage = ''
+      ..passwordErrorMessage = ''))));
     dispatchViewEvent(CloseScreen());
   }
 

@@ -26,6 +26,7 @@ import '../common/buttons/text_button.dart';
 import '../common/container_decoration.dart';
 import '../common/full_screen_error.dart';
 import '../common/svg_icon.dart';
+import '../profile/profile_screen.dart';
 import '../sign_up/sign_up_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -81,27 +82,32 @@ class _LoginScreenState extends BaseState<LoginBloc, LoginScreen> {
             settings: RouteSettings(name: screen.target),
             builder: (context) => const SignUpScreen());
         break;
-      case AppRoutes.homeScreen:
-        /*navigatorKey.currentContext?.pushAndRemoveUntil(
+      case AppRoutes.editProfileScreen:
+        navigatorKey.currentContext?.pushAndRemoveUntil(
           settings: RouteSettings(
             name: screen.target,
           ),
-          builder: (context) => const HomeScreen(),
-        );*/
+          builder: (context) => const EditProfile(),
+        );
         break;
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: AppColors.backgroundColor,
-        resizeToAvoidBottomInset: false,
-        body: SafeArea(
-            child: BlocProvider<LoginBloc>(
-                create: (_) => bloc,
-                child: BlocBuilder<LoginBloc, LoginData>(
-                    builder: (_, __) => _MainContent(bloc: bloc)))));
+    return Container(
+      decoration: const BoxDecoration(gradient: ContainerLinearGradient()),
+      padding: const EdgeInsets.all(Dimens.spaceMedium),
+      child: BlocProvider<LoginBloc>(
+          create: (_) => bloc,
+          child: BlocBuilder<LoginBloc, LoginData>(
+              builder: (_, __) => Scaffold(
+                    backgroundColor: AppColors.transparent,
+                    resizeToAvoidBottomInset: false,
+                    bottomNavigationBar: _BottomView(bloc: bloc),
+                    body: SafeArea(child: _MainContent(bloc: bloc)),
+                  ))),
+    );
   }
 }
 
@@ -132,40 +138,30 @@ class _LoginContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(Dimens.spaceMedium),
-      decoration: const BoxDecoration(
-        gradient: ContainerLinearGradient(),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const Gap(Dimens.space4xSmall),
-          _LanguageView(bloc: bloc),
-          const Gap(Dimens.space5xLarge),
-          const _LogoView(),
-          const Gap(Dimens.space5xLarge),
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                _LoginTextFieldView(bloc: bloc),
-                const Gap(Dimens.space4xSmall),
-                _LoginButton(
-                  isLoading: bloc.state.isLoginButtonLoading ?? false,
-                  onTap: () => bloc.add(LoginButtonTapEvent()),
-                ),
-                const Gap(Dimens.spaceMedium),
-                const _ForgottenPasswordView(),
-              ],
-            ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        const Gap(Dimens.space5xLarge),
+        _LanguageView(bloc: bloc),
+        const Gap(Dimens.space5xLarge),
+        const _LogoView(),
+        SizedBox(
+          height: MediaQuery.of(context).size.height * 0.45,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              _LoginTextFieldView(bloc: bloc),
+              const Gap(Dimens.space4xSmall),
+              _LoginButton(
+                isLoading: bloc.state.isLoginButtonLoading ?? false,
+                onTap: () => bloc.add(LoginButtonTapEvent()),
+              ),
+              const Gap(Dimens.spaceMedium),
+              _ForgottenPasswordView(),
+            ],
           ),
-          const Gap(Dimens.space4xLarge),
-          _CreateAccountButton(onTap: () => bloc.add(CreteAccountTapEvent())),
-          const Gap(Dimens.spaceSmall),
-          const _MetaView()
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
@@ -278,6 +274,24 @@ class _ForgottenPasswordView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(AppLocalization.currentLocalization().forgetPassword,
         style: AppFontTextStyles.textStyleLarge());
+  }
+}
+
+class _BottomView extends StatelessWidget {
+  final LoginBloc bloc;
+
+  const _BottomView({required this.bloc});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        _CreateAccountButton(onTap: () => bloc.add(CreteAccountTapEvent())),
+        const Gap(Dimens.spaceSmall),
+        const _MetaView(),
+      ],
+    );
   }
 }
 

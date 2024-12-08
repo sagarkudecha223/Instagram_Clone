@@ -53,6 +53,9 @@ class UserService {
   String get serverToken =>
       _preferenceStore.getValue(value: SharedPreferenceStore.SERVER_TOKEN);
 
+  UserAccountHive get currentUser => UserAccountHive.fromJson(jsonDecode(
+      _preferenceStore.getValue(value: SharedPreferenceStore.USER_DETAILS)));
+
   String get language =>
       _preferenceStore.getValue(value: SharedPreferenceStore.LANGUAGE_CODE);
 }

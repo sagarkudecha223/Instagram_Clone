@@ -104,7 +104,7 @@ class EnglishLocalization extends AppLocalization {
   @override
   String get privacyPolicyTextHighLight =>
       'Terms, Privacy Policy and Cookies Policy';
+
   @override
   String get alreadyHaveAccount => 'Already have an account please Sign in!';
-
 }

@@ -108,7 +108,6 @@ class SignUpBloc extends BaseBloc<SignUpEvent, SignUpData> {
       if ((state.usernameController.text == element.username &&
               state.mobileEmailController.text == element.mobileOrEmail) &&
           state.passwordController.text == element.password) {
-        _userService.setCurrentUser(userAccountHive: element);
         return true;
       }
     }

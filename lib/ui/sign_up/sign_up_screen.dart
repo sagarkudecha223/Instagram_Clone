@@ -117,12 +117,13 @@ class _SignUpContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Container(
-        padding: const EdgeInsets.all(Dimens.spaceLarge),
-        decoration: const BoxDecoration(gradient: ContainerLinearGradient()),
-        width: double.infinity,
-        height: MediaQuery.of(context).size.height,
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: Dimens.spaceLarge),
+      decoration: const BoxDecoration(gradient: ContainerLinearGradient()),
+      width: double.infinity,
+      height: MediaQuery.of(context).size.height,
+      alignment: Alignment.center,
+      child: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [

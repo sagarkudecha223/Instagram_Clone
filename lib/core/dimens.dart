@@ -89,6 +89,7 @@ class Dimens {
   static const double iconLarge = 36;
   static const double iconXLarge = 40;
   static const double icon2xLarge = 44;
+  static const double icon3xLarge = 48;
 
   //Buttons
   static const double button2xSmall = 12;
