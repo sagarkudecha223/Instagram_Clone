@@ -11,3 +11,5 @@ enum SharedPreferenceStore {
 }
 
 enum LoginTextFieldEnum { username, password }
+
+enum SignUpTextFieldEnum { mobileEmail, fullName, username, password }

@@ -31,9 +31,13 @@ class LoginBloc extends BaseBloc<LoginEvent, LoginData> {
         ..errorMessage = '')
       .build();
 
-  void _initLoginEvent(_, __) => add(UpdateLoginState(state.rebuild((u) => u
-    ..state = ScreenState.content
-    ..selectedLanguageCode = _userService.language)));
+  void _initLoginEvent(_, __) async {
+    final list = await _userService.getUserAccounts();
+    add(UpdateLoginState(state.rebuild((u) => u
+      ..state = ScreenState.content
+      ..userAccountsList = list
+      ..selectedLanguageCode = _userService.language)));
+  }
 
   void _textFieldChangedEvent(TextFieldChangedEvent event, _) {
     switch (event.loginTextFieldEnum) {
@@ -85,11 +89,10 @@ class LoginBloc extends BaseBloc<LoginEvent, LoginData> {
   }
 
   bool _haveAccount() {
-    String userId =
-        '${state.usernameController.text.trim()}${state.passwordController.text}';
-    printLog(message: userId);
     for (var element in state.userAccountsList) {
-      if (element.userId == userId) {
+      if ((state.usernameController.text == element.username ||
+              state.usernameController.text == element.mobileOrEmail) &&
+          state.passwordController.text == element.password) {
         _userService.setCurrentUser(userAccountHive: element);
         return true;
       }

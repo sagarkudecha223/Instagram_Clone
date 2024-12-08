@@ -8,6 +8,7 @@ import 'blocs/main_app/main_app_bloc.dart';
 import 'blocs/main_app/main_app_contract.dart';
 import 'core/colors.dart';
 import 'core/constants.dart';
+import 'core/routes.dart';
 import 'localization/app_localization.dart';
 import 'ui/common/app_loader.dart';
 import 'ui/common/app_toast.dart';
@@ -116,13 +117,12 @@ class _EntryPointState extends BaseState<MainAppBloc, EntryPoint>
 
   void buildHandleActionEvent(NavigateScreen screen) async {
     switch (screen.target) {
-      // TODO
-      /*case AppRoutes.loginScreen:
+      case AppRoutes.loginScreen:
         navigatorKey.currentContext?.pushAndRemoveUntil(
           settings: RouteSettings(name: screen.target),
           builder: (_) => const LoginScreen(),
         );
-        break;*/
+        break;
     }
   }
 
@@ -164,7 +164,7 @@ class _MainContent extends StatelessWidget {
       case ScreenState.loading:
         return const AppLoader();
       case ScreenState.content:
-        return LoginScreen();
+        return const LoginScreen();
       default:
         return const Center(child: CircularProgressIndicator());
     }

@@ -98,7 +98,7 @@ class _TextWithIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         prefixIcon ?? const SizedBox(),
         const Gap(Dimens.space2xSmall),

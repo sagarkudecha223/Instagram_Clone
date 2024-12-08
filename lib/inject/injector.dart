@@ -9,6 +9,7 @@ import '../apis/api_names.dart';
 import '../blocs/full_screen_error/full_screen_error_bloc.dart';
 import '../blocs/login/login_bloc.dart';
 import '../blocs/main_app/main_app_bloc.dart';
+import '../blocs/sign_up/sign_up_bloc.dart';
 import '../core/cache/preference_store.dart';
 import '../services/hive/hive_service.dart';
 import '../services/theme_service/app_theme.dart';
@@ -68,5 +69,6 @@ abstract class Injector extends BaseInjector {
   @Register.factory(MainAppBloc)
   @Register.factory(FullScreenErrorBloc)
   @Register.factory(LoginBloc)
+  @Register.factory(SignUpBloc)
   void _registerBlocProviders();
 }

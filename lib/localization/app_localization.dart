@@ -34,4 +34,32 @@ abstract class AppLocalization extends BaseLocalization {
   String get createNewAccount;
 
   String get selectYourLanguage;
+
+  String get loginWithFaceBook;
+
+  String get signUp;
+
+  String get mobileEmail;
+
+  String get fullName;
+
+  String get usernameSignUp;
+
+  String get mobileEmailError;
+
+  String get signUpUserNameError;
+
+  String get or;
+
+  String get fullNameError;
+
+  String get signTopText;
+
+  String get privacyPolicyText;
+
+  String get privacyPolicyTextHighLight;
+
+  String get haveAnAccount;
+
+  String get alreadyHaveAccount;
 }

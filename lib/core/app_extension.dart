@@ -69,3 +69,18 @@ extension LoginTextFieldEnumExtention on LoginTextFieldEnum {
     }
   }
 }
+
+extension SignUpTextFieldEnumExtention on SignUpTextFieldEnum {
+  String get title {
+    switch (this) {
+      case SignUpTextFieldEnum.mobileEmail:
+        return AppLocalization.currentLocalization().mobileEmail;
+      case SignUpTextFieldEnum.fullName:
+        return AppLocalization.currentLocalization().fullName;
+      case SignUpTextFieldEnum.username:
+        return AppLocalization.currentLocalization().usernameSignUp;
+      case SignUpTextFieldEnum.password:
+        return AppLocalization.currentLocalization().password;
+    }
+  }
+}

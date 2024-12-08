@@ -23,8 +23,10 @@ import '../common/app_toast.dart';
 import '../common/buttons/elevated_button.dart';
 import '../common/buttons/icon_button.dart';
 import '../common/buttons/text_button.dart';
+import '../common/container_decoration.dart';
 import '../common/full_screen_error.dart';
 import '../common/svg_icon.dart';
+import '../sign_up/sign_up_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -75,12 +77,9 @@ class _LoginScreenState extends BaseState<LoginBloc, LoginScreen> {
             backgroundColor: AppColors.white,
             borderRadius: Dimens.radius2xMedium);
       case AppRoutes.signUpScreen:
-/*        navigatorKey.currentContext?.push(
-          settings: RouteSettings(
-            name: screen.target,
-          ),
-          builder: (context) => const SignUpScreen(),
-        );*/
+        navigatorKey.currentContext?.push(
+            settings: RouteSettings(name: screen.target),
+            builder: (context) => const SignUpScreen());
         break;
       case AppRoutes.homeScreen:
         /*navigatorKey.currentContext?.pushAndRemoveUntil(
@@ -135,12 +134,8 @@ class _LoginContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(Dimens.spaceMedium),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: AppColors.screenBackgroundGradientColor,
-        ),
+      decoration: const BoxDecoration(
+        gradient: ContainerLinearGradient(),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -161,7 +156,7 @@ class _LoginContent extends StatelessWidget {
                   onTap: () => bloc.add(LoginButtonTapEvent()),
                 ),
                 const Gap(Dimens.spaceMedium),
-                _ForgottenPasswordView(),
+                const _ForgottenPasswordView(),
               ],
             ),
           ),
@@ -320,11 +315,11 @@ class _LanguageBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: Dimens.spaceSmall),
+      padding: const EdgeInsets.symmetric(vertical: Dimens.spaceSmall),
       width: double.infinity,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(Dimens.radius2xMedium),
-        gradient: LinearGradient(
+        gradient: const LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: AppColors.screenBackgroundGradientColor,
@@ -335,7 +330,8 @@ class _LanguageBottomSheet extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           AppIconButton(
-            iconWidget: AppSvgIcon(Images.cancel, height: Dimens.iconLarge),
+            iconWidget:
+                const AppSvgIcon(Images.cancel, height: Dimens.iconLarge),
             backgroundColor: AppColors.transparent,
             onTap: () => navigatorKey.currentContext?.pop(),
           ),
@@ -363,24 +359,26 @@ class _SelectLanguageView extends StatelessWidget {
             style: AppFontTextStyles.textStyleLarge()
                 .copyWith(fontSize: Dimens.fontSizeTwenty),
           ),
-          Gap(Dimens.spaceSmall),
+          const Gap(Dimens.spaceSmall),
           Container(
-            padding: EdgeInsets.all(Dimens.spaceMedium),
+            padding: const EdgeInsets.all(Dimens.spaceMedium),
             decoration: BoxDecoration(
                 color: AppColors.white,
                 borderRadius: BorderRadius.circular(Dimens.radiusMedium)),
             child: Column(
               children: Localization.localizations
                   .map((Localization language) => Padding(
-                    padding: const EdgeInsets.only(bottom: Dimens.space2xSmall),
-                    child: AppCheckbox(
-                          value: bloc.state.selectedLanguageCode == language.code,
+                        padding:
+                            const EdgeInsets.only(bottom: Dimens.space2xSmall),
+                        child: AppCheckbox(
+                          value:
+                              bloc.state.selectedLanguageCode == language.code,
                           itemText: language.name.toString(),
                           onChanged: (p0) => bloc.add(LanguageTapEvent(
                               languageCode: language.code,
                               localization: language)),
                         ),
-                  ))
+                      ))
                   .toList(),
             ),
           )

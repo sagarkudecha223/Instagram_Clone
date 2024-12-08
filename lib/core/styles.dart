@@ -19,7 +19,7 @@ abstract class AppFontTextStyles {
       fontWeight: FontWeight.w500,
       fontSize: Dimens.fontSizeSixteen,
       color: AppColors.regularTextColor,
-      overflow: TextOverflow.ellipsis,
+      overflow: TextOverflow.visible,
       letterSpacing: 0.07);
 
   static TextStyle textStyleLarge() => TextStyle(

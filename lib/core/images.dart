@@ -9,4 +9,6 @@ class Images {
   static const cancel = '${_directory}cancel.svg';
   static const instagramLogo = '${_directory}instagram.png';
   static const metaLogo = '${_directory}meta_brand.svg';
+  static const facebook = '${_directory}facebook.png';
+  static const instagramTextIcon = '${_directory}instagram_text_icon.svg';
 }

@@ -62,4 +62,49 @@ class EnglishLocalization extends AppLocalization {
 
   @override
   String get selectYourLanguage => 'Select your language';
+
+  @override
+  String get fullNameError => 'Kindly enter valid Full Name';
+
+  @override
+  String get mobileEmailError => 'Kindly enter valid Mobile Number or Email';
+
+  @override
+  String get signUpUserNameError => 'Kindly enter valid Username';
+
+  @override
+  String get loginWithFaceBook => 'Log in with FaceBook';
+
+  @override
+  String get or => 'OR';
+
+  @override
+  String get signUp => 'Sign up';
+
+  @override
+  String get mobileEmail => 'Mobile Number or Email';
+
+  @override
+  String get fullName => 'Full Name';
+
+  @override
+  String get usernameSignUp => 'Username';
+
+  @override
+  String get haveAnAccount => 'Have an account? Log in';
+
+  @override
+  String get signTopText =>
+      'Sign up to see photos and videos\n from your friends';
+
+  @override
+  String get privacyPolicyText =>
+      'By singing up, you agree to our Terms, Privacy Policy and Cookies Policy';
+
+  @override
+  String get privacyPolicyTextHighLight =>
+      'Terms, Privacy Policy and Cookies Policy';
+  @override
+  String get alreadyHaveAccount => 'Already have an account please Sign in!';
+
 }

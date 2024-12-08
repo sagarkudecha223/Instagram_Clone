@@ -17,6 +17,7 @@ analyzer:
     dead_code: error
     prefer_relative_imports: error
     unused_element: error
+    const_not_initialized: warning
 
 linter:
   # The lint rules applied to this project can be customized in the

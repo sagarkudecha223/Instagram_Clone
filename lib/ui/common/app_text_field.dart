@@ -273,7 +273,7 @@ class _LabelText extends StatelessWidget {
     return Text(
       labelText,
       style: AppFontTextStyles.textStyleMedium().copyWith(
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w500,
           fontSize: Dimens.fontSizeSixteen,
           letterSpacing: 0.8,
           color: isError

@@ -5,7 +5,7 @@ import 'package:flutter_base_architecture_plugin/imports/utils_imports.dart';
 
 import '../localization/en.dart';
 import '../localization/hin.dart';
-import '../localization/mr.dart';
+import '../localization/guj.dart';
 
 var navigatorKey = GlobalKey<NavigatorState>();
 NavigatorMiddleware<PageRoute> middleware = NavigatorMiddleware<PageRoute>();
@@ -15,7 +15,7 @@ class AppConstants {
   static final localizationList = [
     EnglishLocalization(),
     HindiLocalization(),
-    MarathiLocalization()
+    GujaratiLocalization()
   ];
   static const kUserAccountBox = 'k_user_account_box';
 }
