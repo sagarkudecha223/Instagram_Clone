@@ -107,4 +107,15 @@ class GujaratiLocalization extends AppLocalization {
 
   @override
   String get alreadyHaveAccount => 'પહેલેથી ખાતું છે, કૃપા કરીને સાઇન ઇન કરો!';
+
+  @override
+  String get passwordRequired => 'પાસવર્ડ આવશ્યક છે';
+
+  @override
+  String get passwordRequiredSixChar =>
+      'પાસવર્ડમાં ઓછામાં ઓછા 6 અક્ષરો હોવા જોઈએ';
+
+  @override
+  String get passwordRequiredLetterSpecialChar =>
+      'પાસવર્ડમાં અક્ષરો, અંકો અને વિશેષ ચિહ્નો હોવા જોઈએ';
 }

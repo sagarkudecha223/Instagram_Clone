@@ -107,4 +107,13 @@ class EnglishLocalization extends AppLocalization {
 
   @override
   String get alreadyHaveAccount => 'Already have an account please Sign in!';
+
+  @override
+  String get passwordRequired => 'Password is required';
+
+  @override
+  String get passwordRequiredSixChar => 'Password must be at least 6 characters';
+
+  @override
+  String get passwordRequiredLetterSpecialChar => 'Password must include letters, numbers, and special characters';
 }

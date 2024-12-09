@@ -141,12 +141,12 @@ class _LoginContent extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        const Gap(Dimens.space5xLarge),
+        const Gap(Dimens.spaceMedium),
         _LanguageView(bloc: bloc),
         const Gap(Dimens.space5xLarge),
         const _LogoView(),
         SizedBox(
-          height: MediaQuery.of(context).size.height * 0.45,
+          height: MediaQuery.of(context).size.height * 0.50,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

@@ -77,14 +77,17 @@ class _SignUpScreenState extends BaseState<SignUpBloc, SignUpScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: AppColors.backgroundColor,
-        bottomNavigationBar: const _BottomView(),
-        body: SafeArea(
-            child: BlocProvider<SignUpBloc>(
-                create: (_) => bloc,
-                child: BlocBuilder<SignUpBloc, SignUpData>(
-                    builder: (_, __) => _MainContent(bloc: bloc)))));
+    return Container(
+      decoration: const BoxDecoration(gradient: ContainerLinearGradient()),
+      child: Scaffold(
+          backgroundColor: AppColors.transparent,
+          bottomNavigationBar: const _BottomView(),
+          body: SafeArea(
+              child: BlocProvider<SignUpBloc>(
+                  create: (_) => bloc,
+                  child: BlocBuilder<SignUpBloc, SignUpData>(
+                      builder: (_, __) => _MainContent(bloc: bloc))))),
+    );
   }
 }
 
@@ -216,7 +219,7 @@ class _FacBookButton extends StatelessWidget {
       prefixWidget: Container(
           color: AppColors.white,
           child: Image.asset(Images.facebook, height: Dimens.iconMedium)),
-      onTap: () => bloc.add(SignUpButtonTapEvent()),
+      onTap: () {},
       isLoading: bloc.state.isSignUpButtonLoading ?? false,
     );
   }
@@ -280,12 +283,7 @@ class _BottomView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-          gradient: ContainerLinearGradient(backgroundColor: [
-        Color(0xFFecf5ff),
-        Color(0xFFeffbf2),
-      ])),
+    return Padding(
       padding: const EdgeInsets.only(bottom: Dimens.spaceSmall),
       child: AppInkWell(
         onTap: () => navigatorKey.currentContext?.pop(),

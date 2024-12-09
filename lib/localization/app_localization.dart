@@ -62,4 +62,10 @@ abstract class AppLocalization extends BaseLocalization {
   String get haveAnAccount;
 
   String get alreadyHaveAccount;
+
+  String get passwordRequired;
+
+  String get passwordRequiredSixChar;
+
+  String get passwordRequiredLetterSpecialChar;
 }

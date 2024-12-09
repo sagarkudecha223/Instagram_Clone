@@ -279,7 +279,7 @@ class _LabelText extends StatelessWidget {
           color: isError
               ? AppColors.red
               : isFocused
-                  ? AppColors.primaryBlue1
+                  ? AppColors.secondaryGrey3
                   : AppColors.hintTextColor),
     );
   }

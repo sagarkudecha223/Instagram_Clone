@@ -147,15 +147,16 @@ class SignUpBloc extends BaseBloc<SignUpEvent, SignUpData> {
 
   String _validatePassword(String? password) {
     if (password == null || password.isEmpty) {
-      return 'Password is required';
+      return AppLocalization.currentLocalization().passwordRequired;
     }
     if (password.length < 6) {
-      return 'Password must be at least 6 characters';
+      return AppLocalization.currentLocalization().passwordRequiredSixChar;
     }
     if (!RegExp(r'[A-Za-z]').hasMatch(password) ||
         !RegExp(r'[0-9]').hasMatch(password) ||
         !RegExp(r'[!@#$%^&*(),.?":{}|<>]').hasMatch(password)) {
-      return 'Password must include letters, numbers, and special characters';
+      return AppLocalization.currentLocalization()
+          .passwordRequiredLetterSpecialChar;
     }
     return '';
   }

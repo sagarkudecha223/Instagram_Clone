@@ -106,4 +106,15 @@ class HindiLocalization extends AppLocalization {
 
   @override
   String get alreadyHaveAccount => 'पहले से खाता है, कृपया साइन इन करें!';
+
+  @override
+  String get passwordRequired => 'पासवर्ड आवश्यक है';
+
+  @override
+  String get passwordRequiredSixChar =>
+      'पासवर्ड में कम से कम 6 अक्षर होने चाहिए';
+
+  @override
+  String get passwordRequiredLetterSpecialChar =>
+      'पासवर्ड में अक्षर, अंक और विशेष चिह्न होना चाहिए';
 }
