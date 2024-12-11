@@ -1,5 +1,10 @@
 # Instagram Clone Flutter App
 
+You can download the APK and screenshot from the folder below:
+
+[Download APK and Screenshot](https://drive.google.com/drive/folders/18F8kQFYrRiavU6Owj6mqVTHH5LKJ7Jb0?usp=sharing)
+
+
 This is a Flutter app that implements an **Instagram Clone** using **BLoC architecture**. The app includes two main screens: **Login Screen** and **Sign Up Screen**, allowing users to access their account or create a new one. It supports **multi-language localization** for English, Hindi, and Gujarati.
 
 ## Features
